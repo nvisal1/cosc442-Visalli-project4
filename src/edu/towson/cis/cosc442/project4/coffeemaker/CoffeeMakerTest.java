@@ -36,6 +36,7 @@ public class CoffeeMakerTest extends TestCase {
 		cm.addRecipe(r1);
 		Recipe newRecipe = new Recipe();
 		newRecipe = r1;
+		r1.setAmtCoffee(3);
 		newRecipe.setAmtSugar(2);
 		assertTrue(cm.editRecipe(r1, newRecipe));
 	}
