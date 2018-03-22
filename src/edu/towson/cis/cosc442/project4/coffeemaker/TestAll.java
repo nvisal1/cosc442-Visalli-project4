@@ -16,7 +16,6 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 	CoffeeMakerTest.class,
-	MainTest.class,
 	RecipeTest.class,
 	InventoryTest.class,
 })

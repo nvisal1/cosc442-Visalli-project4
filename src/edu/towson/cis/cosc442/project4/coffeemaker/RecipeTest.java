@@ -62,6 +62,20 @@ public class RecipeTest {
 	public void testEquals_3()
 		throws Exception {
 		Recipe fixture = new Recipe();
+		fixture.setName(null);
+		Recipe r = new Recipe();
+		r.setName("test");
+
+		boolean result = fixture.equals(r);
+
+		// add additional test code here
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void testEquals_4()
+		throws Exception {
+		Recipe fixture = new Recipe();
 		fixture.setName("");
 		Recipe r = new Recipe();
 
@@ -70,6 +84,21 @@ public class RecipeTest {
 		// add additional test code here
 		assertEquals(false, result);
 	}
+	
+	@Test
+	public void testEquals_5()
+		throws Exception {
+		Recipe fixture = new Recipe();
+		fixture.setName("test");
+		Recipe r = new Recipe();
+		r.setName("test2");
+		
+		boolean result = fixture.equals(r);
+
+		// add additional test code here
+		assertEquals(false, result);
+	}
+
 
 	/**
 	 * Run the int getAmtChocolate() method test.
@@ -333,6 +362,20 @@ public class RecipeTest {
 		int amtSugar = 1;
 
 		fixture.setAmtSugar(amtSugar);
+
+		// add additional test code here
+	}
+	
+	@Test
+	public void testSetAmtSugar_3()
+		throws Exception {
+		Recipe fixture = new Recipe();
+		fixture.setName("");
+		int amtSugar = -1;
+
+		fixture.setAmtSugar(amtSugar);
+		
+		assertEquals(0, fixture.getAmtSugar());
 
 		// add additional test code here
 	}

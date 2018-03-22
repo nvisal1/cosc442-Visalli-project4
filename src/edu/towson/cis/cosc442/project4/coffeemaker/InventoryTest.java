@@ -70,6 +70,38 @@ public class InventoryTest {
 		// add additional test code here
 		assertEquals(true, result);
 	}
+	
+	@Test
+	public void testEnoughIngredients_3()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		Recipe r = new Recipe();
+		r.setAmtChocolate(16);
+		r.setAmtCoffee(16);
+		r.setAmtMilk(16);;
+		r.setAmtSugar(16);;
+
+		boolean result = fixture.enoughIngredients(r);
+
+		// add additional test code here
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void testEnoughIngredients_4()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		Recipe r = new Recipe();
+		r.setAmtChocolate(15);
+		r.setAmtCoffee(15);
+		r.setAmtMilk(15);;
+		r.setAmtSugar(15);;
+
+		boolean result = fixture.enoughIngredients(r);
+
+		// add additional test code here
+		assertEquals(true, result);
+	}
 
 	/**
 	 * Run the int getChocolate() method test.
@@ -157,11 +189,13 @@ public class InventoryTest {
 		int chocolate = -1;
 
 		fixture.setChocolate(chocolate);
+		
+		assertEquals(0, fixture.getChocolate());
 
 		// add additional test code here
 	}
 
-	/**
+	/**;
 	 * Run the void setChocolate(int) method test.
 	 *
 	 * @throws Exception
@@ -211,6 +245,18 @@ public class InventoryTest {
 		int coffee = 1;
 
 		fixture.setCoffee(coffee);
+
+		// add additional test code here
+	}
+	
+	@Test
+	public void testSetCoffee_3()
+		throws Exception {
+		Inventory fixture = new Inventory();
+		int coffee = 0;
+
+		fixture.setCoffee(coffee);
+		assertEquals(coffee, fixture.getCoffee()); 
 
 		// add additional test code here
 	}

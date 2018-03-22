@@ -78,14 +78,19 @@ public class CoffeeMakerTest {
 	public void testAddInventory_2()
 		throws Exception {
 		CoffeeMaker fixture = new CoffeeMaker();
+		Inventory i = new Inventory(); 
 		int amtCoffee = 1;
 		int amtMilk = 1;
-		int amtSugar = 0;
+		int amtSugar = -1;
 		int amtChocolate = 1;
 
 		boolean result = fixture.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate);
 
 		// add additional test code here
+		assertEquals(16, i.getCoffee()); 
+		assertEquals(16, i.getMilk()); 
+		assertEquals(14, i.getSugar()); 
+		assertEquals(16, i.getChocolate()); 
 		assertEquals(true, result);
 	}
 
@@ -342,12 +347,14 @@ public class CoffeeMakerTest {
 		throws Exception {
 		CoffeeMaker fixture = new CoffeeMaker();
 		Recipe oldRecipe = new Recipe();
-		Recipe newRecipe = new Recipe();
+		oldRecipe.setName("test");
+		Recipe newRecipe = oldRecipe; 
+		fixture.addRecipe(oldRecipe); 
 
 		boolean result = fixture.editRecipe(oldRecipe, newRecipe);
 
 		// add additional test code here
-		assertEquals(false, result);
+		assertEquals(true, result);
 	}
 
 	/**
@@ -593,7 +600,7 @@ public class CoffeeMakerTest {
 	 * @generatedBy CodePro at 3/22/18 1:54 PM
 	 */
 	@Test
-	public void testMakeCoffee_1()
+	public void testPurchaseBeverages_1()
 		throws Exception {
 		CoffeeMaker fixture = new CoffeeMaker();
 		Recipe r = new Recipe();
@@ -616,12 +623,21 @@ public class CoffeeMakerTest {
 	public void testMakeCoffee_2()
 		throws Exception {
 		CoffeeMaker fixture = new CoffeeMaker();
+		Inventory i = new Inventory(); 
 		Recipe r = new Recipe();
+		r.setAmtChocolate(1);
+		r.setAmtCoffee(1);
+		r.setAmtMilk(1);
+		r.setAmtSugar(0);
 		int amtPaid = 1;
 
 		int result = fixture.makeCoffee(r, amtPaid);
 
 		// add additional test code here
+		assertEquals(16, i.getCoffee()); 
+		assertEquals(14, i.getMilk()); 
+		assertEquals(15, i.getSugar()); 
+		assertEquals(14, i.getChocolate()); 
 		assertEquals(1, result);
 	}
 
